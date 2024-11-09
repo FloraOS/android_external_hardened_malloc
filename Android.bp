@@ -18,7 +18,7 @@ common_cflags = [
     "-DSLAB_QUARANTINE_QUEUE_LENGTH=1",
     "-DCONFIG_EXTENDED_SIZE_CLASSES=true",
     "-DCONFIG_LARGE_SIZE_CLASSES=true",
-    "-DGUARD_SLABS_INTERVAL=1",
+    "-DGUARD_SLABS_INTERVAL=65536",
     "-DGUARD_SIZE_DIVISOR=2",
     "-DREGION_QUARANTINE_RANDOM_LENGTH=256",
     "-DREGION_QUARANTINE_QUEUE_LENGTH=1024",
@@ -70,9 +70,6 @@ cc_library {
     product_variables: {
         debuggable: {
             cflags: ["-DLABEL_MEMORY"],
-        },
-        device_has_arm_mte: {
-            cflags: ["-DHAS_ARM_MTE", "-march=armv8-a+dotprod+memtag"]
         },
     },
     apex_available: [
