@@ -20,6 +20,10 @@
 #include "random.h"
 #include "util.h"
 
+#ifdef HAS_ARM_MTE
+#error ARM MTE malloc is not supported by FloraOS
+#endif
+
 #ifdef USE_PKEY
 #include <sys/mman.h>
 #endif
